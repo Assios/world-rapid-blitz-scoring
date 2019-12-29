@@ -95,7 +95,7 @@ export class App extends React.Component {
 
           <div className="input-group mb-4 mr-sm-4">
             <div className="input-group-prepend">
-              <div className="input-group-text">Points for losses</div>
+              <div className="input-group-text">Points for loss</div>
             </div>
             <input type="number" className="form-control" value={this.state.l} onChange={this.handleClassicalLossesChange} />
           </div>
