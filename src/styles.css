@@ -1,0 +1,16 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+h3 {
+  margin-bottom: 1em;
+}
+
+.wrapper {
+  padding: 30px;
+}
+
+.inp, .select {
+  margin-bottom: 1em;
+}
