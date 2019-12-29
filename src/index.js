@@ -129,7 +129,7 @@ export class App extends React.Component {
             </select>
           </div>
     </div>
-        <Table players={p} />
+        <Table players={p} w={this.state.w} d={this.state.d} l={this.state.l} />
       </div>
     );
   }

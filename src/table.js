@@ -1,8 +1,8 @@
 import React from "react";
 
-const TableRow = ({ row, rowNumber }) => (
+const TableRow = ({ row, rowNumber, showRegularRank }) => (
   <tr>
-    <th scope="row">{rowNumber}</th>
+    <th scope="row">{rowNumber} {showRegularRank ? <span style={{fontWeight: "normal", fontStyle: "italic"}}>({row.rank})</span> : null}</th>
     <td>{row.name}</td>
     <td><b>{row.score}</b></td>
     <td>{row.wins}</td>
@@ -13,6 +13,12 @@ const TableRow = ({ row, rowNumber }) => (
 
 class Table extends React.Component {
   render() {
+    let showRegularRank = false;
+
+    if (!(this.props.w == 1 && this.props.d == 0.5 && this.props.l == 0)) {
+      showRegularRank = true;
+    }
+
     return (
       <table className="table">
         <thead>
@@ -27,7 +33,7 @@ class Table extends React.Component {
         </thead>
         <tbody>
           {this.props.players.map((item, key) => (
-            <TableRow key={key} row={item} rowNumber={key + 1} />
+            <TableRow key={key} row={item} rowNumber={key + 1} showRegularRank={showRegularRank} />
           ))}
         </tbody>
       </table>
