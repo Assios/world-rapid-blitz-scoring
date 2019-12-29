@@ -102,7 +102,7 @@ export class App extends React.Component {
         </div>
 
         <div className="form-group row">
-          <label className="col-sm-1 col-form-label"><b>Time control</b></label>
+          <label className="col-sm-2 col-form-label"><b>Time control</b></label>
           <div className="col-sm-4">
             <select className="form-control mb-2 mr-sm-2" onChange={this.handleTimeControlSelectChange}>
               <option value="rapid">Rapid</option>
@@ -112,7 +112,7 @@ export class App extends React.Component {
           </div>
 
         <div className="form-group row">
-          <label className="col-sm-1 col-form-label"><b>Preset</b></label>
+          <label className="col-sm-2 col-form-label"><b>Scoring preset</b></label>
           <div className="col-sm-4">
             <select className="form-control mb-2 mr-sm-2" onChange={this.handleSelectChange}>
               <option value="regular">Regular</option>
