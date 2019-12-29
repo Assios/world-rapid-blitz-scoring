@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import Table from "./table.js";
 import rapid from "./data/results_rapid.json";
 import blitz from "./data/results_blitz.json";
+import multisort from "multisort";
 
 import "./styles.css";
 
@@ -64,7 +65,7 @@ export class App extends React.Component {
     const title = this.state.tc === "blitz" ? "World Blitz Championship 2019" : "World Rapid Championship 2019";
     const updatedText = this.state.tc === "blitz" ? "Updated after round 12" : "Updated after the final round";
 
-    const p = this.state.players.map(function(player) {
+    let p = this.state.players.map(function(player) {
       return {
         ...player,
         score:
@@ -72,8 +73,16 @@ export class App extends React.Component {
         player.draws * this.state.d +
         player.losses * this.state.l
       };
-    }, this).
-    sort((a, b) => b.score - a.score);
+    }, this);
+
+    const criteria = [
+      "~score",
+      "~tb1",
+      "~tb2",
+      "~tb3"
+    ]
+
+    multisort(p, criteria);
 
     return (
       <div className="wrapper">
